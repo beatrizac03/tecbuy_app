@@ -1,0 +1,13 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Src\\": "src/"
+        }
+    },
+    "config": {
+        "vendor-dir": "src/vendor"
+    },
+    "require": {
+        "symfony/dotenv": "^7.2"
+    }
+}
