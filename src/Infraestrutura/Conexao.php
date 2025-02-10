@@ -31,7 +31,7 @@ class Conexao
 
             $pdo = new PDO($dsn, $this->username, $this->senha);
 
-            echo "Conexão bem sucedida";
+            /* echo "Conexão bem sucedida"; */
             return $pdo;
         } catch(PDOException $e) {
             echo "Erro na conexão: " . $e->getMessage();

@@ -69,6 +69,52 @@ class UsuarioRepositorio {
 
     }
 
+    /**
+     * @annotation método para verificar se existe algum usuário com determinado email e/ou username, retorna a contagem de individuos com os dados passados
+     */
+
+    public function verificarDisponibilidadeEmail(string $email) {
+        $select = "SELECT COUNT(*) FROM usuarios WHERE email = :email";
+        $stmt = $this->pdo->prepare($select);
+        $stmt->bindParam(':email', $email);
+
+        try {
+            $stmt->execute();
+            $result = $stmt->fetchColumn();
+            
+            if($result > 0) {
+                return false;
+            } else {
+                return true;
+            }
+ 
+        } catch(Exception $e) {
+            echo "Erro ao verificar usuário: " . $e->getTrace() . $e->getMessage();
+        }
+
+    }
+
+    public function verificarDisponibilidadeNomeUsuario(string $nome_usuario) {
+        $select = "SELECT COUNT(*) FROM usuarios WHERE nome_usuario = :nome_usuario";
+        $stmt = $this->pdo->prepare($select);
+        $stmt->bindParam(':nome_usuario', $nome_usuario);
+
+        try {
+            $stmt->execute();
+            $result = $stmt->fetchColumn();
+            
+            /* Caso ache usuário com o nome de usuário, retorna falso */
+            if($result > 0) {
+                return false;
+            } else {
+                return true;
+            }
+ 
+        } catch(Exception $e) {
+            echo "Erro ao verificar usuário: " . $e->getTrace() . $e->getMessage();
+        }
+    }
+
     public function deletarUsuario(int $id_usuario) {
         $delete = "DELETE FROM usuarios WHERE id = ?";
         $stmt = $this->pdo->prepare($delete);

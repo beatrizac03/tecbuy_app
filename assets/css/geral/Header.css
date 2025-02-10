@@ -1,1 +1,7 @@
 @import url('../geral/config.css');
+
+header {
+    background-color: var(--primary);
+    height: 7rem;
+    width: 100%;
+}

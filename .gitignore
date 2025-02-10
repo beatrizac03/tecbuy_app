@@ -1,3 +1,4 @@
 # Ignorar o arquivo de variáveis de ambiente
 config.env
+api.env
 .env

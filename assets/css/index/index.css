@@ -1,1 +1,39 @@
 @import url('../geral/config.css');
+
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 10rem;
+}
+
+.carrosel {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.contain-cards {
+    border: 1px solid black;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.product-card {
+    flex-shrink: 0;
+    width: 18rem;
+    height: 23rem;
+    border: 1px solid black;
+}
+
+.btn-anterior, .btn-proximo {
+    font-size: 3rem;
+}
+
+
+
+
+

@@ -18,10 +18,12 @@
                     <div class="input-label">
                         <label for="nome_usuario">Nome de usuário</label>
                         <input id="nome_usuario" type="text" placeholder="nome de usuário" name="nome_usuario" required>
+                        <span id="nome_usuario-feedback"></span>
                     </div>
                     <div class="input-label">
                         <label for="email">Email</label>
                         <input id="email" type="text" placeholder="email@dominio.com" name="email" required>
+                        <span id="email-feedback"></span>
                     </div>
                     <div class="input-label">
                         <label for="senha">Senha</label>
@@ -32,5 +34,7 @@
             </form>
         </div>
     </main>
+
+    <script src="./assets/js/registro.js"></script>
 </body>
 </html>
