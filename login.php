@@ -1,5 +1,11 @@
 <?php
+    session_start();
 
+    if(isset($_SESSION['id_usuario'])) {
+        echo "Logado!";
+    } else {
+        
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +23,7 @@
     <main>
         <div class="container">
             <h1>LOGIN</h1>
-            <form method="POST" action="realizar-login.php">
+            <form method="POST" action="src/Controle/processar-login.php">
                 <div class="fields-area">
                     <div class="input-label">
                         <label for="email-nomeusuario">Email ou Nome de usuário</label>
@@ -27,6 +33,7 @@
                         <label for="senha">Senha</label>
                         <input id="senha" type="text" placeholder="digite sua senha" name="senha">
                     </div>
+                    <span id="feedback-login"></span>
                     <input name="logar-usuario" type="submit" value="Entrar" class="btn-entrar">
                 </div>
             </form>

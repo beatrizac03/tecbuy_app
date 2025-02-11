@@ -12,6 +12,8 @@ const formarCards = () => {
     
         containerCards.appendChild(card)
     })
+
+    document.dispatchEvent(new Event('cardsCarregados'))
 }
 
 const apiData = async function () {

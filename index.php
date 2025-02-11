@@ -1,3 +1,11 @@
+<?php
+    session_start();
+
+    if(isset($_SESSION['id_usuario'])) {
+
+    } else {}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +22,17 @@
         <div class="img-logo"></div>
         <div class="search-bar">
             <input type="text" name="" id="" placeholder="Encontre o produto desejado">
+        </div>
+        <div class="btn-area">
+            <a href="login.php">
+                <button class="btn-login">Login</button>
+            </a>
+            <a href="registro.php">
+                <button class="btn-registro">Registre-se</button>
+            </a>
+        </div>
+        <div class="user-icon hidden">
+            <i class="bi bi-person-circle"></i>
         </div>
     </header>
 

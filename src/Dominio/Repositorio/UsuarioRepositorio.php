@@ -115,6 +115,27 @@ class UsuarioRepositorio {
         }
     }
 
+    public function verificarLogin(string $email_nomeusuario, string $senha) {
+        $select = "SELECT * FROM usuarios WHERE (nome_usuario = :email_nomeusuario) OR (email = :email_nomeusuario)";
+        $stmt = $this->pdo->prepare($select);
+        $stmt->bindParam(':email_nomeusuario', $email_nomeusuario);
+        
+        try {
+            $stmt->execute();
+            $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $usuario = $this->formarObjeto($dados);
+
+            if(password_verify($senha, $usuario->getSenha())) {
+                return $usuario;
+            } else {
+                return false;
+            }
+        } catch(Exception $e) {
+            echo $e->getTrace() . $e->getMessage();
+        }
+    }
+
     public function deletarUsuario(int $id_usuario) {
         $delete = "DELETE FROM usuarios WHERE id = ?";
         $stmt = $this->pdo->prepare($delete);
