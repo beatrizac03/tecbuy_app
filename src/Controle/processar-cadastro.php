@@ -1,11 +1,9 @@
 <?php
-ini_set('display_errors', 1);
+/* ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL); */
 
 use Src\Dominio\Repositorio\UsuarioRepositorio;
-use function Src\Infraestrutura\criarConexaoBD;
-use Src\Infraestrutura\Conexao;
 
 require "../../src/vendor/autoload.php";
 require "../Infraestrutura/conexao-bd.php";
@@ -32,7 +30,6 @@ if (!empty($_POST)) {
        try {
            $usuariosRepositorio = new UsuarioRepositorio($pdo);
            $usuariosRepositorio->inserirUsuario($dados);
-           // header("Location: registro-sucesso.php");
            exit();
        } catch (Exception $e) {
            echo "Erro ao processar o cadastro: " . $e->getMessage();
