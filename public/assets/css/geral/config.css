@@ -1,0 +1,34 @@
+:root {
+    --background: #F4F4F4;
+    --primary: #0077FF;
+    --accent: #FFD700;
+    --text: #333333;
+    --bg-200: #EAEAEA;
+    --bg-300: #C1C1C1;
+    --primary-200: #6AA5FF;
+    --primary-300: #E1FFFF;
+    --accent-200: #917800;
+    --text-200: #5C5C5C;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto';
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    height: 100%;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}

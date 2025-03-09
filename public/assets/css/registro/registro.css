@@ -1,0 +1,87 @@
+@import url('../geral/config.css');
+
+:root {
+    --radius-desktop: 0.5rem;
+}
+
+body {
+    display: flex;
+    padding: 2rem;
+}
+
+/* Banner amarelo */
+.banner-auth {
+    width: 40%;
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 1rem;
+}
+
+/* Campos de preenchimento */
+
+main {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.fields-area {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+.input-label {
+    gap: 0.7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label label {
+    font-size: 2.1rem;
+}
+
+.input-label input {
+    padding: 0 1rem;
+    border: 1px solid var(--bg-300);
+    transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.input-label input:focus {
+    border-color: var(--accent);
+    outline: none;
+    /* background-color: var(--background); */
+    box-shadow: 0 0 5px var(--accent);
+}
+
+.btn-entrar {
+    background-color: var(--accent);
+    border: none;
+}
+
+.btn-entrar, .input-label input {
+    border-radius: var(--radius-desktop);
+    width: 70rem;
+    height: 4rem;
+}
+
+.input-label span {
+    text-align: right;
+    height: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
