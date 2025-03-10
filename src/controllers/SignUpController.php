@@ -2,8 +2,7 @@
 
 namespace App\Controllers;
 use App\Controllers\Controller;
-use UserRepository;
-
+use App\Model\Repository\UserRepository;
 
 class SignUpController implements Controller{
 

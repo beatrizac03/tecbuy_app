@@ -13,12 +13,12 @@
     <main>
         <div class="container">
             <h1>Crie uma conta</h1>
-            <form method="POST" action="src/Controle/processar-cadastro.php">
+            <form id="signup_form">
                 <div class="fields-area">
                     <div class="input-label">
-                        <label for="nome_usuario">Nome de usuário</label>
-                        <input id="nome_usuario" type="text" placeholder="nome de usuário" name="nome_usuario" required>
-                        <span id="nome_usuario-feedback"></span>
+                        <label for="username*">Nome de usuário</label>
+                        <input id="username" name="username" type="text" placeholder="Nome de usuário" required>
+                        <span id="username-feedback"></span>
                     </div>
                     <div class="input-label">
                         <label for="email">Email</label>
@@ -26,15 +26,15 @@
                         <span id="email-feedback"></span>
                     </div>
                     <div class="input-label">
-                        <label for="senha">Senha</label>
-                        <input id="senha" type="password" placeholder="digite sua senha" name="senha" required>
+                        <label for="password">Senha</label>
+                        <input id="password" type="password" placeholder="digite sua senha" name="password" required>
                     </div>
-                    <input type="submit" value="Registrar" class="btn-entrar">
+                    <input type="submit" value="Register" class="btn-signup">
                 </div>
             </form>
         </div>
     </main>
 
-    <script src="./assets/js/registro.js"></script>
+    <script src="/../../public/assets/js-2/registro.js"></script>
 </body>
 </html>

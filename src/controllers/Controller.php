@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use UserRepository;
-
 interface Controller
 {
     public function processRequest();

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Database;
-use PDO;
 
 require __DIR__ . '/../../vendor/autoload.php'; 
 

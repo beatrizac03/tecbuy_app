@@ -1,7 +1,7 @@
 <?php
 
 /**
- * o GET é pra carregar a página em si, já o POST é se estiver enviando algo pro servidor (form, info)
+ * Specifiees the Controller responsible for each "method|route" 
  */
 
 $routes = [

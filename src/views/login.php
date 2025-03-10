@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/login/login.css">
-    <title>Login</title>
+    <title>Login | Tecbuy </title>
 </head>
 <body>
     <div class="banner-auth">
@@ -13,7 +13,7 @@
     <main>
         <div class="container">
             <h1>LOGIN</h1>
-            <form method="POST" id="form-login">
+            <form id="form-login">
                 <div class="fields-area">
                     <div class="input-label">
                         <label for="email-nomeusuario">Email ou Nome de usuário</label>

@@ -19,7 +19,6 @@ class UserRepository
     public function instanceUserObject(array $data) {
         return new User(
             $data['id'],
-            $data['name'],
             $data['username'],
             $data['username'],
             $data['password'],
