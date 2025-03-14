@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\Repository;
+namespace App\Repository;
 
 use PDO;
 use Exception;
@@ -12,11 +12,13 @@ class UserRepository
 {
     public PDO $pdo;
 
-    public function __construct(PDO $pdo) {
+    public function __construct(PDO $pdo)
+    {
         $this->pdo = $pdo;
     }
 
-    public function instanceUserObject(array $data) {
+    public function instanceUserObject(array $data)
+    {
         return new User(
             $data['id'],
             $data['username'],
@@ -26,7 +28,8 @@ class UserRepository
         );
     }
 
-    public function all() {
+    public function all()
+    {
         $sql = 'SELECT * FROM users;';
 
         $stmt = $this->pdo->prepare($sql);
@@ -36,7 +39,7 @@ class UserRepository
 
             $users = $stmt->fetchAll();
 
-            $usersData = array_map(function($users) {
+            $usersData = array_map(function ($users) {
                 $this->instanceUserObject($users);
             }, $users);
 
@@ -46,7 +49,8 @@ class UserRepository
         }
     }
 
-    public function findById(int $id) {
+    public function findById(int $id)
+    {
         $sql = 'SELECT * FROM users WHERE id = ?;';
 
         $stmt = $this->pdo->prepare($sql);
@@ -60,11 +64,8 @@ class UserRepository
         }
     }
 
-    public function createUser(array $userData) {
-
-    }
-
-    public function isPostedDataAvailable($username, $email) {
+    public function isPostedDataAvailable($username, $email)
+    {
         $sql = 'SELECT username, email FROM users WHERE username = :username || email = :email;';
 
         $stmt = $this->pdo->prepare($sql);
@@ -76,33 +77,57 @@ class UserRepository
 
             $count = $stmt->fetchAll();
 
-            if($count === 0) {
+            if ($count === 0) {
                 return true;
-            } else {
-                return false;
             }
-        } catch(Exception $e) {
+
+            return false;
+        } catch (Exception $e) {
             error_log(message: "Failed to verify if posted data is available, couldn't continue user registration: " . $e->getMessage());
+        }
+    }
+
+    public function createUser(array $userData)
+    {
+
+    }
+
+    public function validateLogin(array $input_data)
+    {
+        $sql = 'SELECT COUNT(*) WHERE username = :username || email = :email AND `password` = `:password`;';
+
+        $stmt = $this->pdo->prepare($sql);
+
+        try {
+            $stmt->execute();
+            $response = $stmt->fetchAll() > 0 ? true : false;
+
+            return $response; 
+        } catch (Exception $e) {
+            error_log(message: "Failed to login user: " . $e->getMessage());
         }
 
     }
 
-    public function update() {
+    public function update()
+    {
 
     }
 
-    public function deleteById(int $id_user) {
+    public function deleteById(int $id_user)
+    {
         $sql = "DELETE FROM usuarios WHERE id = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(1, $id_user);
 
         try {
             $stmt->execute();
-            
+
             echo json_encode(["status" => "success", "message" => "Usuário deletado com sucesso"]);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             error_log("Failed to delete user: " . $e->getMessage())
-;        }
+            ;
+        }
     }
 
 

@@ -5,11 +5,9 @@
  */
 
 $routes = [
-    'GET|/' => App\Controllers\HomeController::class,
-    'GET|/signup' => App\Controllers\SignUpController::class,
-    'POST|/signup' => App\Controllers\SignUpController::class,
-    'POST|/login' => App\Controllers\LoginController::class,
-    'GET|/login' => App\Controllers\LoginController::class,
+    'GET|/' => [App\Controllers\HomeController::class, 'homePage'],
+    'GET|/registrar-usuario' => [App\Controllers\AuthController::class, 'signupPage'],
+    'GET|/logout' => [App\Controllers\AuthController::class, 'logoutPage']
 ];
 
 return $routes;

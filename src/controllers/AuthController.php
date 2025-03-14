@@ -1,19 +1,18 @@
 <?php
 
 namespace App\Controllers;
-use App\Controllers\Controller;
-use App\Model\Repository\UserRepository;
 
-class AuthController implements Controller
+use App\Services\AuthService;
+
+class AuthController
 {
+    private AuthService $authService;
 
     public function processRequest(){
         require __DIR__ . '/../views/home.php';
     }
 
-    public function redirect() {
-    }
-
+    
     public function signUp() {
 
     }
@@ -25,4 +24,9 @@ class AuthController implements Controller
     public function logout() {
         
     }
+
+    public function signupPage() {
+        require __DIR__ . '/../views/signup.php';
+    }
+  
 }
