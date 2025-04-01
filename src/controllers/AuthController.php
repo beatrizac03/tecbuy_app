@@ -14,7 +14,19 @@ class AuthController
 
     
     public function signUp() {
+        $input_data = json_decode(file_get_contents('php://input'), true);
 
+        $response[] = $this->authService->signUp($input_data);
+
+        if($response["status"] == "sucesso") {
+            session_start();
+
+            $_SESSION["username"] = $input_data["username"];
+            
+            header('Location: /../views/home.php');
+        }
+        
+        return json_encode($response);
     }
 
     public function login() {
@@ -23,10 +35,6 @@ class AuthController
 
     public function logout() {
         
-    }
-
-    public function signupPage() {
-        require __DIR__ . '/../views/signup.php';
     }
   
 }

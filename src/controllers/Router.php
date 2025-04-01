@@ -14,7 +14,7 @@ error_reporting(E_ALL);
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-$routes = require __DIR__ . '/../../config/routes.php';
+$routes = require __DIR__ . '/../config/routes.php';
 
 class Router
 {

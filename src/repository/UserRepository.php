@@ -17,7 +17,7 @@ class UserRepository
         $this->pdo = $pdo;
     }
 
-    public function instanceUserObject(array $data)
+    private function instanceUserObject(array $data)
     {
         return new User(
             $data['id'],
@@ -58,13 +58,14 @@ class UserRepository
 
         try {
             $stmt->execute();
+
             return http_response_code(201);
         } catch (Exception $e) {
             error_log("Couldn't find user by id: " . $e->getMessage());
         }
     }
 
-    public function isPostedDataAvailable($username, $email)
+    private function isPostedDataAvailable($username, $email)
     {
         $sql = 'SELECT username, email FROM users WHERE username = :username || email = :email;';
 
@@ -87,9 +88,36 @@ class UserRepository
         }
     }
 
-    public function createUser(array $userData)
+    public function createUser(User $user)
     {
+        $username = $user->getUsername();
+        $email = $user->getEmail();
 
+        $is_dataAvailable = $this->isPostedDataAvailable($username, $email);
+
+        if($is_dataAvailable) {
+            $sql = "INSERT INTO users(username, email, `password`) VALUES
+            (username = ?, email = ?, `password` = ?)";
+
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindValue(1, $username);
+            $stmt->bindValue(2, $email);
+
+            $passwordHash = password_hash($user->getPassword());
+            $stmt->bindValue(3, $passwordHash);
+
+            try {
+                $stmt->execute();
+
+                return true;
+            } catch(Exception $e) {
+                error_log(message: "Failed to create user in DB " . $e->getMessage());
+            }
+        } else {
+            return false;
+        }
+
+        return false;
     }
 
     public function validateLogin(array $input_data)

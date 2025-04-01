@@ -4,7 +4,7 @@ namespace App\Database;
 
 require __DIR__ . '/../../vendor/autoload.php'; 
 
-$dsn = 'mysql:host=localhost;dbname=mvc_app';
+$dsn = 'mysql:host=localhost;dbname=tecbuy_app';
 $username = 'root';
 $password = 'Mysql_app03';
 

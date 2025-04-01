@@ -16,7 +16,7 @@
             <form id="signup_form">
                 <div class="fields-area">
                     <div class="input-label">
-                        <label for="username*">Nome de usuário</label>
+                        <label for="username">Nome de usuário</label>
                         <input id="username" name="username" type="text" placeholder="Nome de usuário" required>
                         <span id="username-feedback"></span>
                     </div>
@@ -30,6 +30,8 @@
                         <input id="password" type="password" placeholder="digite sua senha" name="password" required>
                     </div>
                     <input type="submit" value="Register" class="btn-signup">
+
+                    <span id="feedback"></span>
                 </div>
             </form>
         </div>

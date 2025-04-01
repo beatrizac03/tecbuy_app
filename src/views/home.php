@@ -11,5 +11,8 @@
 </head>
 <body>
     <h1>PÁGINA INICIAL DA APLICAÇÃO</h1>
+
+    <button><a href="./signup">CADASTRO</a></button>
+    <button><a href="./login">LOGIN</a></button>
 </body>
 </html>
